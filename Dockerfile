@@ -7,3 +7,6 @@ RUN a2enmod rewrite
 COPY . .
 
 RUN composer install
+
+RUN chmod -R 777 ./storage/
+RUN chmod -R 777 ./bootstrap/
