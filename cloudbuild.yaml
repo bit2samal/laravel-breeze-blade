@@ -26,9 +26,6 @@ steps:
         --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
       - '--region=$_DEPLOY_REGION'
       - '--quiet'
-  - name: bash
-    args:
-      - php artisan migrate --force
     id: Deploy
     entrypoint: gcloud
 images:
