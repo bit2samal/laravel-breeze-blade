@@ -29,7 +29,7 @@ steps:
       - '--quiet'
     entrypoint: gcloud
   - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: "bash"
+    entrypoint: /bin/sh
     args:
       - "-c"
       - |
