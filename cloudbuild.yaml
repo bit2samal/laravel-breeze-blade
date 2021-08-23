@@ -28,8 +28,7 @@ steps:
       - '--region=$_DEPLOY_REGION'
       - '--quiet'
     entrypoint: gcloud
-  - name : 'bash'
-    id: Migrations
+  - id: Migrations
     args:
       - 'php artisan'
 images:
