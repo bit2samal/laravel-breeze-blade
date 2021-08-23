@@ -28,10 +28,12 @@ steps:
       - '--region=$_DEPLOY_REGION'
       - '--quiet'
     entrypoint: gcloud
-  - name : 'bash'
-    id: bash
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: "bash"
     args:
-      - 'ls -l'
+      - "-c"
+      - |
+          echo "enter 1 bash command per line"
 images:
   - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
 options:
