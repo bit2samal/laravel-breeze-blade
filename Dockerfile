@@ -11,4 +11,4 @@ RUN composer install
 RUN chmod -R 777 ./storage/
 RUN chmod -R 777 ./bootstrap/
 
-RUN php artisan migrate --force
+RUN php artisan
