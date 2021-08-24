@@ -28,12 +28,6 @@ steps:
       - '--region=$_DEPLOY_REGION'
       - '--quiet'
     entrypoint: gcloud
-  - name: 'gcr.io/cloud-builders/gcloud'
-    entrypoint: /bin/sh
-    args:
-      - "-c"
-      - |
-          php artisan migrate --force
 images:
   - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
 options:
