@@ -2,5 +2,4 @@
 
 php artisan migrate --force
 
-php artisan queue:listen
-
+apache2-foreground

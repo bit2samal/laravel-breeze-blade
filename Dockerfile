@@ -8,8 +8,8 @@ COPY . .
 
 RUN composer install
 
-RUN chmod -R 777 ./storage/
-RUN chmod -R 777 ./bootstrap/
-RUN chmod 777 ./setup.sh
+RUN chmod -R 777 /var/www/html/storage/
+RUN chmod -R 777 /var/www/html/bootstrap/
+RUN chmod 777 /var/www/html/setup.sh
 
 ENTRYPOINT [ "/var/www/html/setup.sh" ]
