@@ -10,3 +10,6 @@ RUN composer install
 
 RUN chmod -R 777 ./storage/
 RUN chmod -R 777 ./bootstrap/
+RUN chmod 777 ./setup.sh
+
+ENTRYPOINT [ "/var/www/html/setup.sh" ]
