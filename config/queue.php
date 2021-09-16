@@ -70,6 +70,14 @@ return [
             'block_for' => null,
             'after_commit' => false,
         ],
+        'cloudtasks' => [
+            'driver' => 'cloudtasks',
+            'project' => env('STACKKIT_CLOUD_TASKS_PROJECT', ''),
+            'location' => env('STACKKIT_CLOUD_TASKS_LOCATION', ''),
+            'handler' => env('STACKKIT_CLOUD_TASKS_HANDLER', ''),
+            'queue' => env('STACKKIT_CLOUD_TASKS_QUEUE', 'default'),
+            'service_account_email' => env('STACKKIT_CLOUD_TASKS_SERVICE_EMAIL', ''),
+        ],
 
     ],
 
