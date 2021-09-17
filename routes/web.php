@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RetroReminder;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,6 +22,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::get('/retro','RetroReminder@reminder');
+Route::get('/retro', [RetroReminder::class, 'reminder']);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
