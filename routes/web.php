@@ -21,4 +21,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/retro','RetroReminder@reminder');
+
 require __DIR__.'/auth.php';
