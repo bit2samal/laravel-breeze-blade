@@ -1,4 +1,4 @@
-FROM jdecode/laravel-breeze-php8-pg-node:4
+FROM b2k8786/php-node
 
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
@@ -11,4 +11,4 @@ RUN composer install
 RUN chmod -R 777 ./storage/
 RUN chmod -R 777 ./bootstrap/
 
-ENTRYPOINT ["apache2-foreground","php artisan migrate --force" ]
+CMD ["apache2-foreground","php artisan migrate --force" ]
