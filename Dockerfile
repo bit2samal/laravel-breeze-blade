@@ -10,5 +10,6 @@ RUN composer install
 
 RUN chmod -R 777 ./storage/
 RUN chmod -R 777 ./bootstrap/
+RUN chmod 777 ./setup.sh
 
-CMD ["apache2-foreground","php artisan migrate --force" ]
+ENTRYPOINT [ "/var/www/html/setup.sh" ]
