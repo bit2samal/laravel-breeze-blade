@@ -1,4 +1,4 @@
-FROM b2k8786/php-node
+FROM jdecode/laravel-breeze-php8-pg-node:4
 
 RUN sed -i 's/80/${PORT}/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
 
@@ -8,8 +8,8 @@ COPY . .
 
 RUN composer install
 
-RUN chmod -R 777 /var/www/html/storage/
-RUN chmod -R 777 /var/www/html/bootstrap/
-RUN chmod 777 /var/www/html/setup.sh
+RUN chmod -R 777 ./storage/
+RUN chmod -R 777 ./bootstrap/
+RUN chmod 777 ./setup.sh
 
 ENTRYPOINT [ "/var/www/html/setup.sh" ]
