@@ -23,5 +23,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/retro', [RetroReminder::class, 'reminder']);
-
+Route::get('/debug-sentry', function () {
+    throw new Exception('My first Sentry error!');
+});
 require __DIR__ . '/auth.php';

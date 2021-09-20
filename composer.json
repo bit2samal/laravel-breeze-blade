@@ -11,9 +11,11 @@
         "laravel/framework": "^8.54",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "sentry/sentry-laravel": "^2.8",
         "stackkit/laravel-google-cloud-tasks-queue": "^2.1"
     },
     "require-dev": {
+        "barryvdh/laravel-ide-helper": "^2.10",
         "facade/ignition": "^2.5",
         "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.3",
