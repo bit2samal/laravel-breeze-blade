@@ -1,0 +1,10 @@
+version: "3"
+services:
+  breeze-blade:
+    build:
+      context: .
+    container_name: gcp_queue
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - 85:80
