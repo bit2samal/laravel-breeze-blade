@@ -1,0 +1,31 @@
+#!/bin/bash
+# Basic pre-commit script
+
+EXIT_CODE=0
+
+echo -e "\n\e[93m************************************************\n*  Sensiolabs Security Checker *\n************************************************\033[0m";
+# Sensiolabs Security Checker
+#./vendor/bin/security-checker security:check --ansi || EXIT_CODE=1
+
+echo -e "\n\e[93m************************************************\n*  PHP Lint *\n************************************************\033[0m";
+# PHP Lint
+./hooks/commands/parallel_lint.sh || EXIT_CODE=1
+
+echo -e "\n\e[93m************************************************\n*  PHP Unit *\n************************************************\033[0m";
+# PHPUnit
+./hooks/commands/phpunit.sh || EXIT_CODE=1
+
+echo -e "\n\e[93m************************************************\n*  PHP CodeSniffer *\n************************************************\033[0m";
+# PHP CodeSniffer
+./hooks/commands/phpcs.sh || EXIT_CODE=1
+
+echo -e "\n\e[93m************************************************\n*  PHP Mess Detector *\n************************************************\033[0m";
+
+# PHP Mess Detector
+./hooks/commands/phpmd.sh || EXIT_CODE=1
+
+[ $EXIT_CODE -ne 0 ] &&
+echo -e "\n\t\e[91m************************************************\n\t*  PRE-PUSH HOOK FAILED (see reasons above)  *\n\t************************************************\033[0m" ||
+echo -e "\n\t\e[32m*********************************************\n\t*  PRE-PUSH HOOK PASSED, Going to push changes  *\n\t*********************************************\033[0m"
+
+exit $EXIT_CODE
