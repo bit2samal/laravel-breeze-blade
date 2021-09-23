@@ -3,9 +3,6 @@
 # brewbroker-api
 # 
 EXIT_CODE=0
-POSTMAN_COLLECTION_ID='16769215-d2b9b956-db54-437a-8d0e-7b371747442e'
-POSTMAN_API_KEY='PMAK-614c65dbcb22480034545af4-c75a821bdda91b30360f2cec789117630d'
-POSTMAN_ENV_ID='16769215-a702a373-083c-4943-aaad-e971abcb5ae8'
 
 DEPLOY_READY=$(curl -s 'https://api.reviewee.it/repository/elate-api/haveRejectedCommits' | jq -r '.success')
 
