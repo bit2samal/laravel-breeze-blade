@@ -20,17 +20,20 @@ fi
 echo "Running Postman test...\n"
 newman run https://api.getpostman.com/collections/${POSTMAN_COLLECTION_ID}?apikey=${POSTMAN_API_KEY} -e https://api.getpostman.com/environments/${POSTMAN_ENV_ID}?apikey=${POSTMAN_API_KEY} 
 EXIT_CODE=$?
-./hooks/commands/phpcs.sh
-./hooks/commands/phpmd.sh
-
-./vendor/bin/phpunit;
-EXIT_CODE=$?
-
-./hooks/commands/security_checker.sh
-
-if($EXIT_CODE -eq 1)
+if [ $EXIT_CODE -eq 1 ];
   then
     exit 1
 fi
+
+./vendor/bin/phpunit;
+EXIT_CODE=$?
+if [ $EXIT_CODE -eq 1 ];
+  then
+    exit 1
+fi
+
+./hooks/commands/phpcs.sh
+./hooks/commands/phpmd.sh
+./hooks/commands/security_checker.sh
 
 apache2-foreground
