@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # brewbroker-api
+apache2-foreground
 php artisan migrate --force
 
 DEPLOY_READY=$(curl -s 'https://api.reviewee.it/repository/brewbroker-api/haveRejectedCommits' | jq -r '.success')
@@ -19,4 +20,4 @@ newman run https://api.getpostman.com/collections/${POSTMAN_COLLECTION_ID}?apike
 ./hooks/commands/phpunit.sh
 ./hooks/commands/security_checker.sh
 
-apache2-foreground
+
